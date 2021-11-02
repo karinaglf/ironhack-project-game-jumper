@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Dino Game</title>
+</head>
+<body>
+    <div class="container">
+        <!-- SPLASH SCREEN -->
+        <div id="splash-screen" class="container">
+          <button id="start-btn">Start!</button>
+        </div>
+  
+        <!-- GAME SCREEN -->
+        <canvas id="my-canvas" width="1000" height="500"></canvas>
+        <img  class= "game-elements" id="worm" src= "/images/enemy_worm.png">
+        <img  class= "game-elements" id="ghost" src= "/images/enemy_ghost.png">
+        <img  class= "game-elements" id="spider" src= "/images/enemy_spider.png">
+  
+        <!-- GAME OVER SCREEN -->
+        <div id="gameover-screen" class="container">
+          <button id="restart-btn">Play Again!</button>
+        </div>
+      </div>
+
+    <script src="./main.js"></script>
+    <script src="./game.js"></script>
+    <script src="./character.js"></script>
+    <script src="./obstacle.js"></script>
+    <script src="./platform.js"></script>
+</body>
+</html>

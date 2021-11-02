@@ -1,0 +1,31 @@
+#my-canvas {
+  background-color: lightgray;
+}
+
+#start-btn,
+#restart-btn {
+  background-color: #59872d;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* hide canvas & gameover screen elements at the start */
+#my-canvas {
+  display: none;
+}
+#gameover-screen {
+  display: none;
+}
+.game-elements {
+  display: none;
+}
