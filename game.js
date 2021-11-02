@@ -14,6 +14,15 @@ class Game {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
+  gameover = () => {
+    //stop the game
+    this.isGameover = true;
+    //hide canvas
+    canvas.style.display = "none";
+    //show restart state
+    gameoverScreen.style.display = "flex";
+  }
+
   spawnObstacles = () => {
     let randomObstacle = this.obstacleType[(Math.floor(Math.random)*this.obstacleType.length)]
     //let randomWorm = new Obstacle(Math.random() * canvas.height);  
@@ -70,6 +79,7 @@ class Game {
 
     if(this.character.checkCollision(eachObstacle)){
     //console.log("collision happened")
+    //this.gameover();
     }
     });
 

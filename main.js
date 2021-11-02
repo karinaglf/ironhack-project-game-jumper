@@ -25,6 +25,15 @@ const startGame = () => {
   game.gameLoop();
 };
 
+const restartGame = () => {
+  gameoverScreen.style.display = "none";
+  canvas.style.display = "flex";
+  //you will need to create a new instance of the game
+  //you might need to restart some default variables
+  game = new Game();
+  game.gameLoop();
+};
+
 const movePlayer = (event) => {
   if (event.code === "Space") {
     game.character.jumpChar();
@@ -35,3 +44,5 @@ const movePlayer = (event) => {
 startBtn.addEventListener("click", startGame);
 
 document.addEventListener("keydown", movePlayer);
+
+restartBtn.addEventListener("click", restartGame);
