@@ -1,5 +1,7 @@
 class Game {
   constructor() {
+    this.bg = new Image();
+    this.bg.src = "./images/background-full.png";
     this.character = new Character();
     this.obstaclesArray = [new Obstacle(Math.random() * canvas.height)];
     this.obstaclesInterval = 100; //milliseconds for obstacles to appear
@@ -67,7 +69,7 @@ class Game {
     // Spawn obstacles at a certain interval
     if(this.obstaclesTimer > this.obstaclesInterval) {
       this.spawnObstacles();
-      //clean array when it is outside canva
+      //clean array when it is outside canvas
       this.obstaclesArray = this.obstaclesArray.filter(eachObstacle => !eachObstacle.markedForDeletion)
       this.obstaclesTimer = 0;
       //console.log(this.obstaclesArray);
@@ -84,6 +86,7 @@ class Game {
     });
 
     //* 3. DRAW ELEMENTS
+    ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
     this.character.drawChar();
     this.obstaclesArray.forEach((eachObstacle) => {
       eachObstacle.drawObstacle();

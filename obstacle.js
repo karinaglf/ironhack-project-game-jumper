@@ -1,10 +1,10 @@
 class Obstacle {
     constructor() {
         this.image = new Image();
-        this.spriteWidth = 229;
-        this.spriteHeight = 171;
-        this.width = this.spriteWidth / 2;
-        this.height = this.spriteHeight / 2;
+        this.spriteWidth = 261;
+        this.spriteHeight = 209;
+        this.width = this.spriteWidth * 2;
+        this.height = this.spriteHeight * 2;
         this.x = canvas.width;
         this.y = Math.random() * canvas.height;
         this.width = 80;
@@ -30,20 +30,16 @@ class Obstacle {
 class Worm extends Obstacle {
     constructor () {
         super()
-        this.image = worm;
+        this.image = cactus;
         this.x = canvas.width;
-        this.y = canvas.height - this.height;
+        this.y = 383;
         this.velocityX = Math.random() * 0.5 + 3;
     }
 }
 class Ghost extends Obstacle {
     constructor () {
         super()
-        this.image = ghost;
-        this.spriteWidth = 261;
-        this.spriteHeight = 209;
-        this.width = this.spriteWidth / 2;
-        this.height = this.spriteHeight / 2;
+        this.image = blackbird;
         this.x = canvas.width;
         this.y = Math.random() * canvas.height * 0.2;
         this.velocityX = Math.random() * 0.2 + 5;
