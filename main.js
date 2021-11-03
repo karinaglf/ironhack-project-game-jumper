@@ -35,8 +35,13 @@ const restartGame = () => {
 };
 
 const movePlayer = (event) => {
-  if (event.code === "Space") {
-    game.character.jumpChar();
+  if (event.type === "keydown" && event.code === "Space") {
+    if(game.character.isGrounded) { //only allow Dino to jump if on the ground
+    game.character.jumpChar(); 
+    }
+  }
+  if (event.type === "keyup" && event.code === "Space") {
+    game.character.stopJumpChar();
   }
 };
 
@@ -44,5 +49,7 @@ const movePlayer = (event) => {
 startBtn.addEventListener("click", startGame);
 
 document.addEventListener("keydown", movePlayer);
+
+document.addEventListener("keyup", movePlayer);
 
 restartBtn.addEventListener("click", restartGame);

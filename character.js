@@ -2,15 +2,16 @@ class Character {
   constructor() {
     this.img = new Image();
     this.img.src = "./images/dino.png";
-    this.floorPositionY = 320; //correction for flor position
+    this.floorPositionY = 320; //correction for floor position
     this.width = 120;
     this.height = 120;
-    this.x = 50;
+    this.x = 80;
     this.y = this.floorPositionY;
     this.velocityX = 0   ; //retirar se não for usar
-    this.velocityY = 180;
-    this.isJumping = false;
-    this.gravity = 8;
+    this.velocityY = 1;
+    this.maxJumpHeight = 80;
+    this.isGrounded = true; 
+    this.gravity = 5;
   }
 
   drawChar = () => {
@@ -24,7 +25,9 @@ class Character {
     //this.y + this.height < canvas.height
     if (this.y <= this.floorPositionY) {
     this.y += this.gravity;
-    this.isJumping = false;
+    this.isGrounded = false;
+    } else if (this.y > this.floorPositionY){
+    this.isGrounded = true;
     }
   };
 
@@ -38,21 +41,22 @@ class Character {
       this.y + this.height > singleObstacle.y
     ) {
       return true
-      //this.gravity = 0
     } else {
       return false
-      //this.gravity = 2
     }
   };
   jumpChar = () => {
     this.isJumping = true;
-    this.y -= this.velocityY;
-    this.x += this.velocityX;
+    //console.log(this.isJumping);
+    while (this.y > this.maxJumpHeight) {
+      this.y -= this.velocityY * 0.1;
+    }      
     //console.log("is jumping");
 
-    //stop char to go outside canvas
-    if(this.y < 0) {
-      this.y= 0;
-    }
   };
+  stopJumpChar = () => {
+    this.isJumping = false;
+    //console.log(this.isJumping);
+    this.y -= 0;
+  }
 }

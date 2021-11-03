@@ -2,11 +2,13 @@ class Game {
   constructor() {
     this.bg = new Image();
     this.bg.src = "./images/background-full.png";
+    this.score = 0;
+    this.scoreText = new Text("Score: " + this.score, 25, 50, "left", "black", "20");
     this.character = new Character();
     this.obstaclesArray = [new Obstacle(Math.random() * canvas.height)];
-    this.obstaclesInterval = 100; //milliseconds for obstacles to appear
+    this.obstaclesInterval = 150; //milliseconds for obstacles to appear
     this.obstaclesTimer = 0; // counter interval
-    this.obstacleType = ["worm", "ghost"]
+    this.obstacleType = ["bird", "cactus"]
     this.gravity = 5;
     this.lastTime = 1;
   }
@@ -25,33 +27,24 @@ class Game {
     gameoverScreen.style.display = "flex";
   }
 
+  updateScore = () => {
+    //this.score ++;
+    //console.log(this.score);
+    this.scoreText.t = "Score: " + this.score;
+  }
+
   spawnObstacles = () => {
     let randomObstacle = this.obstacleType[(Math.floor(Math.random)*this.obstacleType.length)]
     //let randomWorm = new Obstacle(Math.random() * canvas.height);  
-    // if(randomObstacle == "worm") {
-    //   this.obstaclesArray.push(new Worm());
-    // } else if(randomObstacle == "ghost") {
-    //   this.obstaclesArray.push(new Ghost())
+    // if(randomObstacle == "bird") {
+    //   this.obstaclesArray.push(new Bird());
+    // } else if(randomObstacle == "cactus") {
+    //   this.obstaclesArray.push(new Cactus())
     // }
-    this.obstaclesArray.push(new Worm());
-    this.obstaclesArray.push(new Ghost());
+    this.obstaclesArray.push(new Cactus());
+    this.obstaclesArray.push(new Bird());
     this.obstaclesArray.sort((a,b) => a.y - b.y)
   }
-
-  spawnPlatforms = () => {
-    // to determine when to add a new platform
-    // will check if the last platform is in defined value for platformAppearingDistance
-    let lastIndex = this.platformArray.length - 1;
-    let lastPlatform = this.platformArray[lastIndex];
-
-    if (lastPlatform.x === this.platformMaxDistanceBetween) {
-      // get a random random number to assign as height and width
-      let randomHeight = this.getRandomNumber(50, 80);
-      let randomWidth = this.getRandomNumber(50, 90);
-      let randomPlatform = new Platform(randomWidth, randomHeight);
-      this.platformArray.push(randomPlatform);
-    }
-  };
 
   gameLoop = (timeStamp) => {
     //console.log("Yay the game is running")
@@ -61,6 +54,7 @@ class Game {
     //* 2. MOVEMENTS AND CHANGES ON ELEMENTS
 
     this.character.gravityChar();
+    this.updateScore();
 
     this.obstaclesArray.forEach((eachObstacle) => {
       eachObstacle.moveObstacle();
@@ -87,6 +81,7 @@ class Game {
 
     //* 3. DRAW ELEMENTS
     ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height);
+    this.scoreText.drawText();
     this.character.drawChar();
     this.obstaclesArray.forEach((eachObstacle) => {
       eachObstacle.drawObstacle();

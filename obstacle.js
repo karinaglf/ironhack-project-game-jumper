@@ -9,7 +9,7 @@ class Obstacle {
         this.y = Math.random() * canvas.height;
         this.width = 80;
         this.height = 80;
-        this.velocityX = 3;
+        this.velocityX = 5;
         this.markedForDeletion = false;
     }
 
@@ -27,27 +27,34 @@ class Obstacle {
         }
     }    
 }
-class Worm extends Obstacle {
+class Cactus extends Obstacle {
     constructor () {
         super()
-        this.image = cactus;
+        this.spriteWidth = 261;
+        this.spriteHeight = 291;
+        this.width = this.spriteWidth / 2.5;
+        this.height = this.spriteHeight / 2.5;
+        this.image = cactusSprite;
         this.x = canvas.width;
-        this.y = 383;
-        this.velocityX = Math.random() * 0.5 + 3;
+        this.y = 355;
     }
 }
-class Ghost extends Obstacle {
+class Bird extends Obstacle {
     constructor () {
         super()
         this.image = blackbird;
         this.x = canvas.width;
         this.y = Math.random() * canvas.height * 0.2;
-        this.velocityX = Math.random() * 0.2 + 5;
+        this.velocityX = Math.random() * 0.2 + 8;
         this.angle = 0;
         this.radius = 3  ;
     }   
 
     moveObstacle = () => {
+        this.spriteWidth = 261;
+        this.spriteHeight = 291;
+        this.width = this.spriteWidth / 2.5;
+        this.height = this.spriteHeight / 2.5;
         this.x -= this.velocityX;
         this.y += Math.sin(this.angle) * this.radius;
         this.angle += 0.1;
