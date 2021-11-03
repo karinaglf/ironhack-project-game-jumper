@@ -31,7 +31,7 @@ const restartGame = () => {
   //you will need to create a new instance of the game
   //you might need to restart some default variables
   game = new Game();
-  game.gameLoop();
+  game.gameLoop();  
 };
 
 const movePlayer = (event) => {

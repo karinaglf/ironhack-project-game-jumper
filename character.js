@@ -5,16 +5,16 @@ class Character {
     this.floorPositionY = 320; //correction for floor position
     this.width = 120;
     this.height = 120;
-    this.x = 80;
+    this.x = 100;
     this.y = this.floorPositionY;
     this.velocityX = 0   ; //retirar se não for usar
     this.velocityY = 1;
-    this.maxJumpHeight = 80;
-    this.isGrounded = true; 
+    this.maxJumpHeight = 50;
+    this.isGrounded = true;
     this.gravity = 5;
   }
 
-  drawChar = () => {
+  drawChar = () => {  
     //ctx.fillStyle = "green";
     //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);  
@@ -30,7 +30,6 @@ class Character {
     this.isGrounded = true;
     }
   };
-
   checkCollision = (singleObstacle) => {
     //singlePlatform is coming from the game method that calls this collision in eachPlatform through the foreach in platform array
     //check if char is on each Platform
@@ -52,7 +51,6 @@ class Character {
       this.y -= this.velocityY * 0.1;
     }      
     //console.log("is jumping");
-
   };
   stopJumpChar = () => {
     this.isJumping = false;
