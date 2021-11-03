@@ -12,17 +12,16 @@ class Character {
     this.maxJumpHeight = 50;
     this.isGrounded = true;
     this.gravity = 5;
+    this.sound = new Audio();
+    this.sound.src = "./sounds/jump.wav"
   }
 
   drawChar = () => {  
-    //ctx.fillStyle = "green";
-    //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);  
   };
 
   gravityChar = () => {
     //only add gravity if char is not on the ground
-    //this.y + this.height < canvas.height
     if (this.y <= this.floorPositionY) {
     this.y += this.gravity;
     this.isGrounded = false;
@@ -31,8 +30,6 @@ class Character {
     }
   };
   checkCollision = (singleObstacle) => {
-    //singlePlatform is coming from the game method that calls this collision in eachPlatform through the foreach in platform array
-    //check if char is on each Platform
     if (
       this.x < singleObstacle.x + singleObstacle.width &&
       this.x + this.width > singleObstacle.x &&
@@ -46,15 +43,13 @@ class Character {
   };
   jumpChar = () => {
     this.isJumping = true;
-    //console.log(this.isJumping);
+    //this.sound.play();
     while (this.y > this.maxJumpHeight) {
       this.y -= this.velocityY * 0.1;
     }      
-    //console.log("is jumping");
   };
   stopJumpChar = () => {
     this.isJumping = false;
-    //console.log(this.isJumping);
     this.y -= 0;
   }
 }

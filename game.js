@@ -1,14 +1,8 @@
 class Game {
   constructor() {
-    //this.bg = new Image();
-    // this.bg.src = "./images/background.png";
-    // this.bgCloud = new Image();
-    // this.bgCloud.src = "./images/background-clouds.png";
-    // this.bgCloudWidth = 931;
-    // this.bgCloudX = 50; 
-    // this.bgCloudX2 = 50 + this.bgCloudWidth;
     this.backgroundLayers = [new Background(), new Clouds(), new Floor()];
     this.character = new Character();
+    this.explosion = new Explosion();
     this.obstaclesArray = [new Obstacle()];
     this.obstaclesInterval = 100; //milliseconds for obstacles to appear
     this.obstaclesTimer = 0; // counter interval
@@ -36,14 +30,6 @@ class Game {
   updateScore = () => {
     this.scoreText.t = "Score: " + this.score;
   }
-
-  // addBackgroundLayers = () => {
-  //   let clouds = new Background("./images/background-clouds.png", 4)
-  //   let background = new Background("./images/background.png", 4)
-  //   this.backgroundLayers = [newBackground, newClouds]
-  //   this.backgroundLayers.push(new Clouds());
-  //   this.backgroundLayers.push(new BaseLayer());
-  // }
 
   spawnObstacles = () => {
     //let randomObstacle = this.obstacleType[(Math.floor(Math.random)*this.obstacleType.length)]
@@ -87,6 +73,7 @@ class Game {
         } 
         if (eachObstacle instanceof Bird) {
           this.score +=1;
+          console.log(this.score);
         }
     }
     });
@@ -94,13 +81,13 @@ class Game {
     //* 3. DRAW ELEMENTS
     this.backgroundLayers.forEach((eachLayer) => {
       eachLayer.drawBackground();
-      console.log(this.backgroundLayers)
     })
     this.scoreText.drawText();
     this.character.drawChar();
     this.obstaclesArray.forEach((eachObstacle) => {
       eachObstacle.drawObstacle();
     })
+    this.explosion.drawExplosion();
     //* 4. ANIMATION FRAME AND LOGIC
     this.updateScore();
     if(!this.isGameover) {
