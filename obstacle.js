@@ -35,7 +35,7 @@ class Cactus extends Obstacle {
         this.spriteHeight = 209;
         this.width = this.spriteWidth / 3;
         this.height = this.spriteHeight / 3;
-        this.image = cactusSprite;
+        this.image.src = "./images/cactus-sprite.png";
         this.velocityX = 8 ;
         this.x = canvas.width;
         this.y = 380;
@@ -44,7 +44,7 @@ class Cactus extends Obstacle {
 class Bird extends Obstacle {
     constructor () {
         super()
-        this.image = blackbird;
+        this.image.src = "./images/black-bird.png";
         this.x = canvas.width;
         this.y = Math.random() * canvas.height * 0.2;
         this.velocityX = Math.random() * 0.1 + 3;

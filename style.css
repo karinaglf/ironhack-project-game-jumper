@@ -108,71 +108,8 @@ p {
   line-height: 3rem;
 
 }
-/* - OFFICIAL*/
-/*
-.button {
-  z-index: 10;
-  transform: translateX(-50%) translateY(-50%);
-  box-sizing: content-box;
-  display: block;
-  width: 32px;
-  height: 44px;
-  border-radius: 50%;
-  padding: 18px 20px 18px 28px;
-}
-
-.button:before {
-  content: "";
-  transform: translateX(-50%) translateY(-50%);
-  display: block;
-  width: 80px;
-  height: 80px;
-  background: #e9a019;
-  border-radius: 50%;
-  animation: pulse-border 1500ms ease-out infinite;
-}
-
-.button:after {
-  content: "";
-  z-index: 1;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  display: block;
-  width: 80px;
-  height: 80px;
-  background: #e9a019;
-  border-radius: 50%;
-  transition: all 200ms;
-}
-
-.button:hover:after {
-  background-color: darken(#e9a019, 10%);
-}
-.button span {
-  display: block;
-  position: relative;
-  z-index: 3;
-  width: 0;
-  height: 0;
-  border-left: 32px solid #fff;
-	border-top: 22px solid transparent;
-	border-bottom: 22px solid transparent;
-}
-
-@keyframes pulse-border {
-  0% {
-    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
-    opacity: 0;
-  }
-}
-*/
 #copyright {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   text-align: center;
   font-family: Helvetica, sans-serif;
   font-style: italic;
