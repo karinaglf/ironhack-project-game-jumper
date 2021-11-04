@@ -43,6 +43,7 @@ class Game {
     //* 2. MOVEMENTS AND CHANGES ON ELEMENTS
 
     this.character.gravityChar();
+    this.character.animateChar();
     this.obstaclesArray.forEach((eachObstacle) => {
       eachObstacle.moveObstacle();
     })

@@ -26,6 +26,7 @@ class Obstacle {
         if (this.x < 0 - this.width) {
             this.markedForDeletion = true;
         }
+
     }    
 }
 class Cactus extends Obstacle {
