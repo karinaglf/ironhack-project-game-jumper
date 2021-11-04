@@ -9,11 +9,11 @@ class Game {
     //this.obstacleType = ["bird", "cactus"]
     this.lastTime = 1;
     this.score = 0;
-    this.scoreText = new Text("Score: " + this.score, 25, 50, "left", "black", "25");
+    this.scoreText = new Text("Score: " + this.score, 1000, 50, "right", "black");
     this.isGameover = false;
   }
 
-  //Random Function to be used as a utility
+  //Random Function to be used as a utility 
   getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
@@ -69,7 +69,7 @@ class Game {
 
     if(this.character.checkCollision(eachObstacle)){
         if (eachObstacle instanceof Cactus) {
-          //this.gameover();
+          this.gameover();
         } 
         if (eachObstacle instanceof Bird) {
           this.score +=1;

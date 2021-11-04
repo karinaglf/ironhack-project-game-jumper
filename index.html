@@ -5,14 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    
     <title>Dino Game</title>
 </head>
 <body>
     <div class="container">
       <h1>Dodge Dino</h1>
+      <p>The Jurassic Era was full of dangers, but not for Dino, the dodgiest dinosaur in history.</p>
         <!-- SPLASH SCREEN -->
         <div id="splash-screen" class="container">
-          <button id="start-btn">Start!</button>
+        <div class="box-button">
+          <a id="start-btn" class="button" href="#"><span></span></a>
+        </div>
+          <span class="cta">Start Game!</span>
+          <p id="instructions">
+            Use the <em>[    space bar    ]</em> to escape from obstacles.
+            Catches the birds to Score.
+          </p>
+
         </div>
   
         <!-- GAME SCREEN -->
@@ -26,10 +36,12 @@
 
   
         <!-- GAME OVER SCREEN -->
-        <div id="gameover-screen" class="container">
-          <button id="restart-btn">Play Again!</button>
+        <div id="gameover-screen" class="container" width="1024" height="512">
+          <a id="restart-btn" class="button" href="#"><span></span></a>
+          <span class="cta">Play Again!</span>    
         </div>
       </div>
+      <p id="copyright">(ɔ) Dodge Dino was the first JS project developed by Karina Freitas, check out the source code on <a target="_blank" href="https://github.com/karinaglf/ironhack-project-game-jumper">Git Hub</a>
 
     <script src="./main.js"></script>
     <script src="./game.js"></script>

@@ -1,22 +1,133 @@
-#my-canvas {
-  background-color: lightgray;
+@import url('https://fonts.googleapis.com/css?family=Mochiy+Pop+One');
+@import url('https://fonts.googleapis.com/css?family=Chalkduster');   
+body {
+  background-color: #BDE5F7;
+  font-family: fantasy;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 2.5rem;
+  padding: 0;
+  margin: 0;
 }
-
-#start-btn,
-#restart-btn {
-  background-color: #59872d;
-  color: white;
-  padding: 20px;
-  font-size: 20px;
-  margin-top: 40px;
-  border-radius: 20px;
+h1 {
+  font-family: Chalkduster;
+  font-size: 4rem;
+  line-height: 1rem;
+  color: #e9a019;
+  margin-top: 60px;
+  margin-bottom: 15px;
 }
-
+p {
+  font-size: 2rem;
+  font-weight: bold;
+}
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#my-canvas {
+  border: 1px solid black;
+  filter: drop-shadow(5px 10px 4px #484849c7);
+}
+#splash-screen, #gameover-screen {
+  display: flex;
+  width: 1024px;
+  height: 512px;
+  background-image: url(./images/splash-screen-bg.png);
+  border: 1px solid black;
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.472);
+}
+.cta {
+  font-size: 3em;
+  margin-top: 150px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.493);
+}
+#instructions {
+  color: white;
+  text-align: center;
+  width: 40%;
+  font-size: 1.2rem;
+  line-height: 2rem;
+
+}
+.button {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-sizing: content-box;
+  display: block;
+  width: 32px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 18px 20px 18px 28px;
+}
+
+.button:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #e9a019;
+  border-radius: 50%;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #e9a019;
+  border-radius: 50%;
+  transition: all 200ms;
+}
+
+.button:hover:after {
+  background-color: darken(#e9a019, 10%);
+}
+.button span {
+  display: block;
+  position: relative;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  border-left: 32px solid #fff;
+	border-top: 22px solid transparent;
+	border-bottom: 22px solid transparent;
+}
+
+@keyframes pulse-border {
+  0% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+    opacity: 0;
+  }
+}
+#copyright {
+  font-size: 0.7rem;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 400;
 }
 
 /* hide canvas & gameover screen elements at the start */
