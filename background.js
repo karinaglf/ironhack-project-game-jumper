@@ -30,7 +30,7 @@ class Clouds extends Background {
         this.width = 931;
         this.height = 111;
         this.y = 80;
-        this.image.src = "/images/background-clouds.png";
+        this.image.src = "./images/background-clouds.png";
         this.speed = 1;
     }
 }
