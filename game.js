@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.backgroundLayers = [new Background(), new Clouds(), new Floor()];
     this.character = new Character();
-    this.explosion = new Explosion(50,50);
+    this.explosionArray = [new Explosion(-200,-200)];
     this.obstaclesArray = [new Obstacle()];
     this.obstaclesInterval = 100; //milliseconds for obstacles to appear
     this.obstaclesTimer = 0; // counter interval
@@ -30,7 +30,6 @@ class Game {
   updateScore = () => {
     this.scoreText.t = "Score: " + this.score;
   }
-
   spawnObstacles = () => {
     //let randomObstacle = this.obstacleType[(Math.floor(Math.random)*this.obstacleType.length)]
     this.obstaclesArray.push(new Cactus());
@@ -38,20 +37,21 @@ class Game {
   }
 
   gameLoop = (timeStamp) => {
-    //console.log("Yay the game is running")
     //* 1. CLEAR THE CANVAS
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     //* 2. MOVEMENTS AND CHANGES ON ELEMENTS
 
     this.character.gravityChar();
-
     this.obstaclesArray.forEach((eachObstacle) => {
       eachObstacle.moveObstacle();
     })
 
     this.backgroundLayers.forEach((eachLayer) => {
       eachLayer.moveBackground();
+    })
+    this.explosionArray.forEach((eachExplosion) => {
+      eachExplosion.animateExplosion();
     })
 
     // Spawn obstacles at a certain interval
@@ -69,14 +69,14 @@ class Game {
 
     if(this.character.checkCollision(eachObstacle, index)){
         if (eachObstacle instanceof Cactus) {
-          this.gameover();
+          //this.gameover();
         } 
         if (eachObstacle instanceof Bird) {
           this.score +=1;
           //console.log(this.score);
           //console.log(index)
           obstaclesArray.splice(index, 1);
-          this.explosion.drawExplosion();
+          this.explosionArray.push(new Explosion(eachObstacle.x, eachObstacle.y))
         }
     }
     });
@@ -90,7 +90,9 @@ class Game {
     this.obstaclesArray.forEach((eachObstacle) => {
       eachObstacle.drawObstacle();
     })
-    this.explosion.drawExplosion();
+    this.explosionArray.forEach((eachExplosion) => {
+      eachExplosion.drawExplosion();
+    })          
     //* 4. ANIMATION FRAME AND LOGIC
     this.updateScore();
     if(!this.isGameover) {

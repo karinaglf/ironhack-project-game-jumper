@@ -1,31 +1,28 @@
 class Explosion {
   constructor(x,y) {
-    this.image = new Image();
-    this.image.src = "./images/boom.png";
-    this.x = x;
-    this.y = y;
+    this.img = new Image();
+    this.img.src = "./images/boom.png";
     this.spriteWidth = 200;
     this.spriteHeight = 179;
-    this.width = this.spriteWidth / 2;
-    this.height = this.height / 2;
-    this.frame = 0;
+    this.frameX = 0;
+    this.width = this.spriteWidth * 0.6;
+    this.height = this.spriteHeight * 0.6;
+    this.x = x;
+    this.y = y;
+    this.frameX = 0;
+    this.timer = 0;
   }
-  updateExplosion = () => {
-    this.frame++;
-  };
+  
   drawExplosion = () => {
-    ctx.drawImage(
-      this.image,
-      this.spriteWidth * this.frame,
-      0,
-      this.spriteWidth,
-      this.spriteHeight,
-      this.width,
-      this.height,
-      this.x,
-      this.y,
-      this.width,
-      this.height
-    );
+    ctx.drawImage(this.img, this.spriteWidth * this.frameX, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
+
   };
+
+  animateExplosion = () => {
+    this.timer++;
+    if(this.timer % 10 === 0){
+      this.frameX ++;  
+    }
+  }
 }
+
