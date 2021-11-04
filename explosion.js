@@ -1,9 +1,9 @@
 class Explosion {
-  constructor() {
+  constructor(x,y) {
     this.image = new Image();
     this.image.src = "./images/boom.png";
-    this.x = 20;
-    this.y = 20;
+    this.x = x;
+    this.y = y;
     this.spriteWidth = 200;
     this.spriteHeight = 179;
     this.width = this.spriteWidth / 2;

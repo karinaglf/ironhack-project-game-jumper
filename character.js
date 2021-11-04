@@ -29,7 +29,7 @@ class Character {
     this.isGrounded = true;
     }
   };
-  checkCollision = (singleObstacle) => {
+  checkCollision = (singleObstacle, index, obstaclesArray) => {
     if (
       this.x < singleObstacle.x + singleObstacle.width &&
       this.x + this.width > singleObstacle.x &&
@@ -43,7 +43,7 @@ class Character {
   };
   jumpChar = () => {
     this.isJumping = true;
-    //this.sound.play();
+    this.sound.play();
     while (this.y > this.maxJumpHeight) {
       this.y -= this.velocityY * 0.1;
     }      

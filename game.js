@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.backgroundLayers = [new Background(), new Clouds(), new Floor()];
     this.character = new Character();
-    this.explosion = new Explosion();
+    this.explosion = new Explosion(50,50);
     this.obstaclesArray = [new Obstacle()];
     this.obstaclesInterval = 100; //milliseconds for obstacles to appear
     this.obstaclesTimer = 0; // counter interval
@@ -65,15 +65,18 @@ class Game {
       this.obstaclesTimer += 1;
     }
 
-    this.obstaclesArray.forEach((eachObstacle) => {
+    this.obstaclesArray.forEach((eachObstacle, index, obstaclesArray) => {
 
-    if(this.character.checkCollision(eachObstacle)){
+    if(this.character.checkCollision(eachObstacle, index)){
         if (eachObstacle instanceof Cactus) {
           this.gameover();
         } 
         if (eachObstacle instanceof Bird) {
           this.score +=1;
-          console.log(this.score);
+          //console.log(this.score);
+          //console.log(index)
+          obstaclesArray.splice(index, 1);
+          this.explosion.drawExplosion();
         }
     }
     });
