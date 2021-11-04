@@ -74,9 +74,6 @@ p {
   border-radius: 50%;
   background-color:#e9a0196b;
 }
-.button:hover {
-  background-color: darken(#e9a019, 10%);
-}
 .button span {
   z-index: 10;
   width: 0;
@@ -116,6 +113,16 @@ p {
   font-weight: 400;
   line-height: 1rem;
   margin-top: 20px;
+}
+#copyright a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #9e6f16;
+}
+#copyright a:hover {
+  font-weight: bold;
+  text-decoration: none;
+  color: #fda706;
 }
 
 /* hide canvas & gameover screen elements at the start */
