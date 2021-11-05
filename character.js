@@ -68,7 +68,7 @@ class Character {
   };
   jumpChar = () => {
     this.isJumping = true;
-    //this.sound.play();
+    this.sound.play();
     while (this.y > this.maxJumpHeight) {
       this.y -= this.velocityY * 0.1;
     }
