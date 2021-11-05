@@ -5,9 +5,8 @@ body {
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
   color: #3a3a3a;
-  font-size: 1rem;
   text-align: center;
-  line-height: 2.5rem;
+  line-height: 1.6rem;
   padding: 0;
   margin: 0;
 }
@@ -15,7 +14,6 @@ h1 {
   font-family: 'Freckle Face', cursive;
   font-weight: bold;
   font-size: 6rem;
-  line-height: 1.2rem;
   color: #e9a019;
   margin-top: 60px;
   margin-bottom: 15px;
@@ -39,6 +37,7 @@ p {
   width: 1024px;
   height: 512px;
   background-image: url(./images/splash-screen-bg.png);
+  background-size: cover;
   border: 1px solid black;
   box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.472);
   filter: drop-shadow(5px 10px 4px #484849c7);
@@ -105,14 +104,10 @@ p {
   text-align: center;
   width: 40%;
   font-size: 1.2rem;
-  line-height: 3rem;
-
+  line-height: 1.6rem;
+  margin-top: 10;
 }
 #copyright {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row;
   font-size: 0.9rem;
   text-align: center;
   font-weight: 400;

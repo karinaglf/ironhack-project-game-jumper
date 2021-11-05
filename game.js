@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.backgroundLayers = [new Background(), new Clouds(), new Floor()];
     this.character = new Character();
-    this.explosionArray = [new Explosion(-200,-200)];
+    this.explosionArray = [new Explosion()];
     this.obstaclesArray = [new Obstacle()];
     this.obstaclesInterval = 100; //milliseconds for obstacles to appear
     this.obstaclesTimer = 0; // counter interval
@@ -11,6 +11,7 @@ class Game {
     this.score = 0;
     this.scoreText = new Text("Score: " + this.score, 1000, 50, "right", "black");
     this.isGameover = false;
+    this.gameSpeed = 1;
   }
 
   //Random Function to be used as a utility 
@@ -26,7 +27,13 @@ class Game {
     //show restart state
     gameoverScreen.style.display = "flex";
   }
-  
+  increaseGameLevel = () => {
+    if(this.score % 10 === 0) {
+      this.obstaclesArray.forEach(eachObstacle => {
+        eachObstacle.velocityX += 0.1;
+      })
+    }
+  }
   updateScore = () => {
     this.scoreText.t = "Score: " + this.score;
   }
@@ -96,6 +103,7 @@ class Game {
     })          
     //* 4. ANIMATION FRAME AND LOGIC
     this.updateScore();
+    this.increaseGameLevel();
     if(!this.isGameover) {
       requestAnimationFrame(this.gameLoop);
     }

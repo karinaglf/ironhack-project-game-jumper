@@ -12,7 +12,7 @@ class Character {
     this.x = 100; 
     this.y = this.floorPositionY;
     this.velocityY = 1;
-    this.maxJumpHeight = 50;
+    this.maxJumpHeight = 40;
     this.isGrounded = true;
     this.gravity = 5;
     this.sound = new Audio();
