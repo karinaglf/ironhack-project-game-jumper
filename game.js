@@ -70,7 +70,7 @@ class Game {
 
     if(this.character.checkCollision(eachObstacle, index)){
         if (eachObstacle instanceof Cactus) {
-          //this.gameover();
+          this.gameover();
         } 
         if (eachObstacle instanceof Bird) {
           this.score +=1;

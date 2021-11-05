@@ -64,9 +64,7 @@ class Character {
       this.y + this.height > singleObstacle.y
     ) {
       return true;
-    } else {
-      return false;
-    } 
+    }
   };
   jumpChar = () => {
     this.isJumping = true;

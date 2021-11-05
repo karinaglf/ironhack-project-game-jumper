@@ -22,7 +22,7 @@ class Obstacle {
 
     moveObstacle = () => {
         this.x -= this.velocityX;
-        //remove enemies from the array
+        //remove obstacles from the array
         if (this.x < 0 - this.width) {
             this.markedForDeletion = true;
         }
@@ -60,7 +60,7 @@ class Bird extends Obstacle {
         this.height = this.spriteHeight / 2.5;
         this.x -= this.velocityX;
         this.y += Math.sin(this.angle) * this.radius;
-        this.angle += 0.1;
+        this.angle += 0.2;
         //remove obstacles from the array
         if (this.x < 0 - this.width) {
             this.markedForDeletion = true;
