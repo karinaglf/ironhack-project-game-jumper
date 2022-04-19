@@ -15,8 +15,6 @@ class Obstacle {
   }
 
   drawObstacle = () => {
-    //ctx.fillStyle = "black";
-    //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
       this.image,
       this.frameX * this.spriteWidth,
@@ -44,7 +42,7 @@ class Cactus extends Obstacle {
     this.width = 230 * 0.4;
     this.height = 210 * 0.4;
     this.image.src = "./images/cactus-1.png";
-    this.velocityX = 7;
+    this.velocityX = velocityX;
     this.x = canvas.width;
     this.y = 360;
   }
@@ -55,7 +53,7 @@ class Bird extends Obstacle {
     this.image.src = "./images/black-bird.png";
     this.x = canvas.width;
     this.y = Math.random() * canvas.height * 0.2;
-    this.velocityX = 8;
+    this.velocityX = velocityX;
     this.angle = 0;
     this.radius = 4;
   }

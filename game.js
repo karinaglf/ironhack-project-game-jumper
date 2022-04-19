@@ -34,9 +34,9 @@ class Game {
     gameoverScreen.style.display = "flex";
   };
   increaseGameLevel = () => {
-    if (this.score > 1 && this.score % 10 == 0) {
-      this.cactusVelocity += 2;
-      this.birdsVelocity  += 3;
+    if (this.score > 1 && this.score % 5 === 0) {
+      this.cactusVelocity += 0.01;
+      this.birdsVelocity  += 0.02;
       this.levelControl += 0.01;
       this.level = Math.floor(this.levelControl);
     }
@@ -92,8 +92,6 @@ class Game {
         }
         if (eachObstacle instanceof Bird) {
           this.score += 1;
-          //console.log(this.score);
-          //console.log(index)
           obstaclesArray.splice(index, 1);
           this.explosionArray.push(
             new Explosion(eachObstacle.x, eachObstacle.y)
@@ -121,9 +119,5 @@ class Game {
     if (!this.isGameover) {
       requestAnimationFrame(this.gameLoop);
     }
-
-    //const deltaTime = timeStamp - this.lastTime;
-    //this.lastTime = timeStamp;
-    //console.log(deltaTime);
   };
 }

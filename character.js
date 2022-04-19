@@ -23,8 +23,6 @@ class Character {
   }
 
   drawChar = () => {
-    //ctx.fillStyle = "black";
-    //ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.drawImage(
       this.img,
       this.frameX,
@@ -56,7 +54,7 @@ class Character {
       this.spriteLength = 7;
     }
   };
-  checkCollision = (singleObstacle, index, obstaclesArray) => {
+  checkCollision = (singleObstacle) => {
     if (
       this.x < singleObstacle.x + singleObstacle.width &&
       this.x + this.width > singleObstacle.x &&
